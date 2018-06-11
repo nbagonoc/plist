@@ -1,36 +1,42 @@
 <div class="container mt-3" *ngIf="listing">
   <div class="row">
-    <div class="col-md-5 mb-3">
+    <div class="col-md-6 mb-3">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title mb-0">{{listing.title}}</h5>
+          <h5 class="card-title text-info mb-0">{{listing.title}}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <strong>
-              <i class="fa fa-money-bill mr-1"></i>Price:</strong> P{{listing.price | number: '1.0-0'}}</li>
-          <li class="list-group-item">
-            <strong>
-              <i class="fa fa-map-marker-alt mr-1"></i>Location:</strong> {{listing.city}}</li>
-          <li class="list-group-item">
-            <strong>
-              <i class="fa fa-door-open mr-1"></i>Bedrooms:</strong> {{listing.bedrooms}}</li>
-          <li class="list-group-item">
-            <strong>
-              <i class="fa fa-home mr-1"></i>Type:</strong> {{listing.type}}</li>
-          <li class="list-group-item">
-            <strong>
-              <i class="fa fa-mobile-alt mr-1"></i>Contact Number:</strong> {{listing.phone}}</li>
+          <li class="list-group-item text-info">
+            <i class="fa fa-money-bill mr-1"></i>Price:
+            <span class="text-muted">P{{listing.price | number: '1.0-0'}}</span>
+          </li>
+          <li class="list-group-item text-info">
+
+            <i class="fa fa-map-marker-alt mr-1"></i>Location:
+            <span class="text-muted">{{listing.city}}</span>
+          </li>
+          <li class="list-group-item text-info">
+            <i class="fa fa-door-open mr-1"></i>Bedrooms:
+            <span class="text-muted">{{listing.bedrooms}}</span>
+          </li>
+          <li class="list-group-item text-info">
+            <i class="fa fa-home mr-1"></i>Type:
+            <span class="text-muted">{{listing.type}}</span>
+          </li>
+          <li class="list-group-item text-info">
+            <i class="fa fa-mobile-alt mr-1"></i>Contact Number:
+            <span class="text-muted">{{listing.phone}}</span>
+          </li>
         </ul>
         <div class="card-body" *ngIf="isLoggedIn">
           <a href="#" class="btn btn-outline-success mr-1" [routerLink]="['/edit-listing/'+id]">
             <i class="fas fa-edit"></i>Edit</a>
-          <a href="#" class="btn btn-outline-danger" (click)="onDelete()">
+          <a href="/listings" class="btn btn-outline-danger" (click)="onDelete()">
             <i class="fas fa-trash mr-1"></i>Delete</a>
         </div>
       </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <img src="{{imageUrl}}" alt="{{listing.title}}" class="img-fluid">

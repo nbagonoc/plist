@@ -43,7 +43,7 @@ export class AddListingComponent implements OnInit {
         cssClass: "alert-success",
         timeout: 4000
       });
-      this.router.navigate(["/listings"]);
+      this.router.navigate(["dashboard"]);
     }
   }
 }

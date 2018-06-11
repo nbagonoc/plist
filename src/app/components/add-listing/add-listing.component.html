@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="card">
     <div class="card-header">
-      <span class="align-middle lead">List a new property</span>
+      <span class="align-middle lead text-info">List a new property</span>
     </div>
     <div class="card-body">
       <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
@@ -78,7 +78,7 @@
         </div>
         <button type="submit" class="btn btn-outline-success mr-1">
           <i class="fa fa-check-circle mr-1"></i>Submit</button>
-        <a href="#" [routerLink]="['/listings']" class="btn btn-outline-danger">
+        <a href="#" [routerLink]="['/dashboard']" class="btn btn-outline-danger">
           <i class="fa fa-times-circle mr-1"></i>Cancel</a>
       </form>
     </div>

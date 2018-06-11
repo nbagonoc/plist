@@ -24,14 +24,14 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.email, this.password)
       .then(res => {
-        this.router.navigate(["/add-listing"]);
+        this.router.navigate(["dashboard"]);
       })
       .catch(err => {
         this.flashMessagesService.show(err.message, {
           cssClass: "alert-danger",
           timeout: 5000
         });
-        this.router.navigate(["/login"]);
+        this.router.navigate(["login"]);
       });
   }
 }

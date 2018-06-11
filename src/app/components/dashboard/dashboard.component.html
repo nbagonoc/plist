@@ -1,0 +1,41 @@
+<div class="container mt-3">
+  <div class="card" *ngIf="listings">
+    <div class="card-header">
+      <span class="align-middle lead text-info">Your property listing</span>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead class="text-info">
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Bedrooms</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-muted">
+          <tr *ngFor="let listing of listings">
+            <td class="text-capitalize">{{listing.title}}</td>
+            <td>{{listing.city}}</td>
+            <td>P{{listing.price | number: '1.0-0'}}</td>
+            <td>{{listing.bedrooms}}</td>
+            <td>
+              <div class="float-right">
+                <a href="#" [routerLink]="['/listing/'+listing.$key]" class="btn btn-sm btn-outline-success mr-1">
+                  <i class="fa fa-eye mr-1"></i>View
+                </a>
+                <a href="#" [routerLink]="['/edit-listing/'+listing.$key]" class="btn btn-sm btn-outline-warning mr-1">
+                  <i class="fa fa-pencil-alt mr-1"></i>Edit
+                </a>
+                <!-- <a href="#" (click)="onDelete()" class="btn btn-sm btn-outline-danger mr-1">
+                      <i class="fa fa-trash-alt"></i>
+                    </a> -->
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

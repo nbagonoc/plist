@@ -32,10 +32,16 @@ import { ListingComponent } from "./components/listing/listing.component";
 import { AddListingComponent } from "./components/add-listing/add-listing.component";
 import { EditListingComponent } from "./components/edit-listing/edit-listing.component";
 import { LoginComponent } from "./components/login/login.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
 
 // ROUTES
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "login", component: LoginComponent },
   { path: "listings", component: ListingsComponent },
   { path: "listing/:id", component: ListingComponent },
@@ -60,7 +66,8 @@ const appRoutes: Routes = [
     ListingComponent,
     AddListingComponent,
     EditListingComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
