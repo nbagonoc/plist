@@ -1,0 +1,14 @@
+<div class="login bg-light"></div>
+<div class="cover-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mx-auto">
+        <form (submit)="onSubmit()">
+          <input type="email" class="login-email-input form-control" [(ngModel)]="email" name="email" required placeholder="Email">
+          <input type="password" class="login-password-input form-control" [(ngModel)]="password" name="password" required placeholder="Password">
+          <input type="submit" class="login-submit btn btn-outline-success btn-block" value="Sign-In" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

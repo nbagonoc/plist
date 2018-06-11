@@ -1,0 +1,78 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">
+      <span class="align-middle lead">Edit property list</span>
+    </div>
+    <div class="card-body">
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-row">
+          <div class="col-md-4">
+            <!-- title -->
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" [(ngModel)]="listing.title" name="title" #listingTitle="ngModel" required>
+              <span *ngIf="listingTitle.errors?.required && listingTitle.touched" class="small text-danger">title is required</span>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <!-- location -->
+            <div class="form-group">
+              <label for="city">Location</label>
+              <input type="text" class="form-control" [(ngModel)]="listing.city" name="city" #listingCity="ngModel" required>
+              <span *ngIf="listingCity.errors?.required && listingCity.touched" class="small text-danger">location is required</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!-- price -->
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" class="form-control" [(ngModel)]="listing.price" name="price" #listingPrice="ngModel" required required>
+              <span *ngIf="listingPrice.errors?.required && listingPrice.touched" class="small text-danger">price is required</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-2">
+            <!-- bedrooms -->
+            <div class="form-group">
+              <label for="bedrooms">Number of Bedrooms</label>
+              <select type="text" class="form-control" [(ngModel)]="listing.bedrooms" name="bedrooms" #listingBedrooms="ngModel" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <span *ngIf="listingBedrooms.errors?.required && listingBedrooms.touched" class="small text-danger">number of bedrooms is required</span>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <!-- type -->
+            <div class="form-group">
+              <label for="type">Select a Type</label>
+              <select type="text" class="form-control" [(ngModel)]="listing.type" name="type" #listingType="ngModel" required>
+                <option value="Estate">Estate</option>
+                <option value="Condo">Condo</option>
+                <option value="Apartment">Apartment</option>
+              </select>
+              <span *ngIf="listingType.errors?.required && listingType.touched" class="small text-danger">type is required</span>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <!-- contact -->
+            <div class="form-group">
+              <label for="phone">Cell Phone Number</label>
+              <input type="text" class="form-control" [(ngModel)]="listing.phone" name="phone" #listingPhone="ngModel" minlength="11" required>
+              <span *ngIf="listingPhone.errors?.required && listingPhone.touched" class="small text-danger">cell phone number is required</span>
+              <span *ngIf="listingPhone.errors?.minlength && listingPhone.touched" class="small text-danger">cell phone number must be 11 characters</span>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-outline-success mr-1">
+          <i class="fa fa-check-circle mr-1"></i>Submit</button>
+        <a href="#" [routerLink]="['/listing/'+id]" class="btn btn-outline-danger">
+          <i class="fa fa-times-circle mr-1"></i>Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
