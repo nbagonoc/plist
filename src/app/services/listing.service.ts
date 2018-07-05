@@ -12,12 +12,12 @@ import { Listing } from "../models/Listing";
   providedIn: "root"
 })
 export class ListingService {
-  listings: AngularFireList<any>;
-  listing: AngularFireObject<any>;
+  listings;
+  listing;
   folder: any;
 
   constructor(public af: AngularFireDatabase) {
-    this.listings = this.af.list("/listings") as AngularFireList<Listing[]>;
+    this.listings = this.af.list("/listings") as AngularFireList<any>;
     this.folder = "listingImages";
   }
 
@@ -28,9 +28,7 @@ export class ListingService {
 
   // get property listing
   getListing(id: string) {
-    this.listing = this.af.object("/listings/" + id) as AngularFireObject<
-      Listing
-    >;
+    this.listing = this.af.object("/listings/" + id) as AngularFireObject<any>;
     return this.listing;
   }
 

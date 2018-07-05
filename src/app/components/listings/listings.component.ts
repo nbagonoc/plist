@@ -8,7 +8,7 @@ import { Listing } from "../../models/Listing";
   styleUrls: ["./listings.component.css"]
 })
 export class ListingsComponent implements OnInit {
-  listings: any[];
+  listings: any;
 
   constructor(public listingService: ListingService) {}
 
@@ -21,7 +21,7 @@ export class ListingsComponent implements OnInit {
         listings.forEach(listing => {
           let listingItem = listing.payload.toJSON();
           listingItem["$key"] = listing.key;
-          this.listings.push(listingItem as Listing);
+          this.listings.push(listingItem as any);
         });
         // console.log(this.listings);
       });
